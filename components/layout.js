@@ -4,8 +4,8 @@ import styles from "./layout.module.scss";
 import utilStyles from "../styles/utils.module.scss";
 import Nav from "./nav";
 import Header from "./header";
-import Strip from './strip';
-import Footer from './footer';
+import Strip from "./strip";
+import Footer from "./footer";
 
 const name = "Wehi";
 export const siteTitle = "Wehipage";
@@ -13,8 +13,8 @@ export const siteTitle = "Wehipage";
 let date = new Date();
 let year = date.getFullYear();
 const copyright = [
-    {name: 'Background video', credit: 'Inspired Island', id: 0},
-    {name: 'Anime girl image', credit: 'Aniplex (Wonder Egg Priority)', id: 1},
+  { name: "Background video", credit: "Inspired Island", id: 0 },
+  { name: "Anime girl image", credit: "Aniplex (Wonder Egg Priority)", id: 1 },
 ];
 
 export default function Layout({ children, home }) {
@@ -51,7 +51,7 @@ export default function Layout({ children, home }) {
         <>
           <div className={styles.container}>{children}</div>
           <footer>
-            <></>
+            <Footer year={year} copyright={copyright} />
           </footer>
         </>
       )}

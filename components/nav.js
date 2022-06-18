@@ -7,9 +7,8 @@ import Link from "next/link";
 
 const navigation = [
   { name: "Home", href: "/", current: true },
-  { name: "Team", href: "#", current: false },
-  { name: "Projects", href: "#", current: false },
-  { name: "Calendar", href: "#", current: false },
+  { name: "Projects", href: "/projects", current: false },
+  { name: "About Me", href: "#", current: false },
 ];
 
 function classNames(...classes) {
