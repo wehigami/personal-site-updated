@@ -1,19 +1,18 @@
-import md from "markdown-it";
 import Head from "next/head";
 import Layout, { siteTitle } from "../components/layout";
-import utilStyles from "../styles/utils.module.scss";
-import { getSortedPagesData } from "../lib/page-data";
 import Image from "next/image";
 import YTEmbed from "../components/ytEmbed";
+//import { getSortedPagesData } from "../lib/page-data";
+
 
 export const ytID = "O5p2ZX7UU9w";
 export const borderColor = "border-zinc-800";
 
 export async function getStaticProps() {
-  const allPagesData = getSortedPagesData();
+  //const allPagesData = getSortedPagesData();
   return {
     props: {
-      allPagesData,
+      //allPagesData,
     },
   };
 }

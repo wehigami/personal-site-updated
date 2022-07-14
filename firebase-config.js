@@ -22,3 +22,5 @@ if (getApps().length === 0) {
 }
 
 export const db = getFirestore(app);
+
+// TODO: CRUD operations

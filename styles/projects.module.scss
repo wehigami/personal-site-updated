@@ -1,0 +1,21 @@
+.projectsResponsive {
+    @media (min-width: 768px) {
+        width: 30rem;
+    }
+}
+
+.projectsGrid {
+    @media (min-width: 768px) {
+        display: grid;
+        grid-template-columns: repeat(auto-fit);
+    }
+
+    @media (min-width: 1024px) {
+        grid-template-columns: auto auto;
+    }
+
+    @media (min-width: 1660px) {
+        grid-template-columns: auto auto auto;
+    }
+
+}

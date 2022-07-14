@@ -1,8 +1,7 @@
 import Image from "next/image";
 import utilStyles from "../styles/utils.module.scss";
-import { Fragment } from "react/cjs/react.production.min";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 
 const navigation = [
