@@ -7,14 +7,16 @@ import Header from "./header";
 import Strip from "./strip";
 import Footer from "./footer";
 
+
 const name = "Wehi";
 export const siteTitle = "Wehipage";
 
 let date = new Date();
 let year = date.getFullYear();
+let id = 0;
 const copyright = [
-  { name: "Background video", credit: "Inspired Island", id: 0 },
-  { name: "Anime girl image", credit: "Aniplex (Wonder Egg Priority)", id: 1 },
+  { name: "Background video", credit: "Inspired Island", id: id },
+  { name: "Anime girl image", credit: "Aniplex (Wonder Egg Priority)", id: id++ },
 ];
 
 export default function Layout({ children, home }) {

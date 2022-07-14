@@ -3,18 +3,46 @@ import utilStyles from "../styles/utils.module.scss";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import Link from "next/link";
-
-const navigation = [
-  { name: "Home", href: "/", current: true },
-  { name: "Projects", href: "/projects", current: false },
-  { name: "About Me", href: "#", current: false },
-];
+import fs from "fs";
+import path from "path";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Nav() {
+var pagesArray = [];
+
+
+Nav.getInitialProps = async (ctx) => {
+  let dirname = path.dirname(
+    `M:\\Creative\\Coding\\Fullstack\\nextjs\\personal-website\\pages\\pages`
+  );
+
+  let files = fs.readdirSync(dirname);
+
+  files.forEach((file) => {
+    file.replace(/\.js$/, "");
+    if (file === "_app.js" || file === "index.js") {
+      return;
+    } else {
+      pagesArray.push(file);
+    }
+  });
+
+
+
+  return {
+  };
+}
+
+let navigation = [
+  { name: "Home", href: "/", current: true },
+  { name: "test", href: "/projects", current: false },
+  { name: "About Me", href: "#", current: false },
+];
+
+
+function Nav({ files }) {
   return (
     <Disclosure as="nav" className={utilStyles.navColor}>
       {({ open }) => (
@@ -95,3 +123,5 @@ export default function Nav() {
     </Disclosure>
   );
 }
+
+export default Nav;
