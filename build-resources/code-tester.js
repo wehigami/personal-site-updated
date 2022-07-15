@@ -30,31 +30,36 @@ const path = require("path");
 
 // console.log(test);
 
-  var pagesArray = [];
+var pagesArray = [];
 
-  let dirname = path.dirname(
-    `M:\\Creative\\Coding\\Fullstack\\nextjs\\personal-website\\pages\\pages`
-  );
+let dirname = path.dirname(
+  `M:\\Creative\\Coding\\Fullstack\\nextjs\\personal-website\\pages\\pages`
+);
 
-  let files = fs.readdirSync(dirname);
+let files = fs.readdirSync(dirname);
 
-  files.forEach((file) => {
-    file.replace(/\.js$/, "");
-    if (file === "_app.js" || file === "index.js") {
-      return;
-    } else {
-        file = file.replace(/\.js/, '');
-      pagesArray.push(file);
-    }
-  });
+files.forEach((file) => {
+  file.replace(/\.js$/, "");
+  if (file === "_app.js" || file === "index.js") {
+    return;
+  } else {
+    file = file.replace(/\.js/, "");
+    pagesArray.push(file);
+  }
+});
 
-  console.log(pagesArray);
-
+console.log(pagesArray);
 
 let navigation = [
   { name: "Home", href: "/", current: true },
-  { name: pagesArray[0], href: "/projects", current: false },
+  { name: "test", href: "/projects", current: false },
   { name: "About Me", href: "#", current: false },
 ];
 
-console.log(navigation); 
+console.log(navigation);
+
+for (let x = 0; x < pagesArray.length; x++) {
+  navigation[x].name = pagesArray[x];
+}
+
+console.log(navigation);
