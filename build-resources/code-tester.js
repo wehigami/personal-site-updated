@@ -43,6 +43,7 @@ const path = require("path");
     if (file === "_app.js" || file === "index.js") {
       return;
     } else {
+        file = file.replace(/\.js/, '');
       pagesArray.push(file);
     }
   });
