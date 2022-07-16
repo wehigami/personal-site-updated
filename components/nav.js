@@ -3,20 +3,12 @@ import utilStyles from "../styles/utils.module.scss";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import Link from "next/link";
-import fs from "fs";
-import path from "path";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-let navigation = [
-  { name: "Home", href: "/", current: true },
-  { name: "test", href: "/projects", current: false },
-  { name: "About Me", href: "#", current: false },
-];
-
-function Nav({}) {
+function Nav({ navigation }) {
   return (
     <Disclosure as="nav" className={utilStyles.navColor}>
       {({ open }) => (

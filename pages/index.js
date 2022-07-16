@@ -19,7 +19,7 @@ export async function getStaticProps() {
 
 export default function Home({ pageNames }) {
   return (
-    <Layout home>
+    <Layout home navData={pageNames}>
       <Head>
         <title>{siteTitle}</title>
       </Head>

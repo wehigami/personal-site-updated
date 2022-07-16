@@ -4,20 +4,33 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase-config";
 import { useState, useEffect } from "react";
 import styles from '../styles/projects.module.scss';
+import { namePages } from "../lib/pages-names";
 
-export default function Projects() {
+export async function getStaticProps() {
+  //const allPagesData = getSortedPagesData();
+  const pageNames = namePages();
+  return {
+    props: {
+      pageNames
+    },
+  };
+}
+
+export default function Projects({ pageNames }) {
   const [projects, setProjects] = useState([]);
   const projectsCollectionRef = collection(db, "projects");
+
   useEffect(() => {
     const getProjects = async () => {
       const data = await getDocs(projectsCollectionRef);
       setProjects(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
+
     getProjects();
   }, []);
 
   return (
-    <Layout>
+    <Layout navData={pageNames}>
       <Head>
         <title>{siteTitle}</title>
       </Head>

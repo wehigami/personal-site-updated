@@ -19,7 +19,7 @@ const copyright = [
 ];
 
 
-export default function Layout({ children, home }) {
+export default function Layout({ children, home, navData }) {
   return (
     <div>
       <Head>
@@ -35,7 +35,7 @@ export default function Layout({ children, home }) {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <nav className="border-y-4 border-zinc-800">
-        <Nav />
+        <Nav navigation={navData}/>
       </nav>
       {home ? (
         <div className={`${styles.wrapper}`}>
