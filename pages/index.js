@@ -2,22 +2,22 @@ import Head from "next/head";
 import Layout, { siteTitle } from "../components/layout";
 import Image from "next/image";
 import YTEmbed from "../components/ytEmbed";
-//import { getSortedPagesData } from "../lib/page-data";
-
+import { namePages } from "../lib/pages-names";
 
 export const ytID = "O5p2ZX7UU9w";
 export const borderColor = "border-zinc-800";
 
 export async function getStaticProps() {
   //const allPagesData = getSortedPagesData();
+  const pageNames = namePages();
   return {
     props: {
-      //allPagesData,
+      pageNames
     },
   };
 }
 
-export default function Home() {
+export default function Home({ pageNames }) {
   return (
     <Layout home>
       <Head>

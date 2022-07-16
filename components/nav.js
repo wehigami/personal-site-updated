@@ -10,39 +10,13 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-var pagesArray = [];
-
-
-Nav.getInitialProps = async (ctx) => {
-  let dirname = path.dirname(
-    `M:\\Creative\\Coding\\Fullstack\\nextjs\\personal-website\\pages\\pages`
-  );
-
-  let files = fs.readdirSync(dirname);
-
-  files.forEach((file) => {
-    file.replace(/\.js$/, "");
-    if (file === "_app.js" || file === "index.js") {
-      return;
-    } else {
-      pagesArray.push(file);
-    }
-  });
-
-
-
-  return {
-  };
-}
-
 let navigation = [
   { name: "Home", href: "/", current: true },
   { name: "test", href: "/projects", current: false },
   { name: "About Me", href: "#", current: false },
 ];
 
-
-function Nav({ files }) {
+function Nav({}) {
   return (
     <Disclosure as="nav" className={utilStyles.navColor}>
       {({ open }) => (
@@ -82,8 +56,8 @@ function Nav({ files }) {
                         <a
                           className={classNames(
                             item.current
-                              ? "text-white hover:text-yellow-300 transition-all duration-200"
-                              : "text-gray-300 hover:text-white transition-all duration-200",
+                              ? "text-white hover:text-yellow-300 transition-all duration-200 capitalize"
+                              : "text-gray-300 hover:text-white transition-all duration-200 capitalize",
                             "px-3 py-2 text-sm font-medium"
                           )}
                           aria-current={item.current ? "page" : undefined}
@@ -107,8 +81,8 @@ function Nav({ files }) {
                   href={item.href}
                   className={classNames(
                     item.current
-                      ? "text-white hover:text-yellow-300 transition-all duration-200"
-                      : "text-gray-300 hover:text-white transition-all duration-200",
+                      ? "text-white hover:text-yellow-300 transition-all duration-200 capitalize"
+                      : "text-gray-300 hover:text-white transition-all duration-200 capitalize",
                     "block px-3 py-2 rounded-md text-base font-medium"
                   )}
                   aria-current={item.current ? "page" : undefined}

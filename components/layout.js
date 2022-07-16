@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "./layout.module.scss";
-import utilStyles from "../styles/utils.module.scss";
 import Nav from "./nav";
 import Header from "./header";
 import Strip from "./strip";
@@ -18,6 +17,7 @@ const copyright = [
   { name: "Background video", credit: "Inspired Island", id: id },
   { name: "Anime girl image", credit: "Aniplex (Wonder Egg Priority)", id: id++ },
 ];
+
 
 export default function Layout({ children, home }) {
   return (
