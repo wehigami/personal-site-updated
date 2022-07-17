@@ -1,18 +1,19 @@
 import Layout from "../components/layout"
-import { fileCounter } from '../lib/file-counter';
+import { namePages } from "../lib/pages-names";
+
 
 export async function getStaticProps() {
-    const allFiles = fileCounter();
-    return {
-      props: {
-        allFiles,
-      },
-    };
-  }
-
-export default function hangman() {
+  //const allPagesData = getSortedPagesData();
+  const pageNames = namePages();
+  return {
+    props: {
+      pageNames
+    },
+  };
+}
+export default function hangman({ pageNames }) {
     return (
-        <Layout>
+        <Layout navData={pageNames}>
 
         </Layout>
     )

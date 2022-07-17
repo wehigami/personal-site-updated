@@ -14,7 +14,7 @@ let date = new Date();
 let year = date.getFullYear();
 let id = 0;
 const copyright = [
-  { name: "Background video", credit: "Inspired Island", id: id },
+  { name: "Background video", credit: "Inspired Island", id: id++ },
   { name: "Anime girl image", credit: "Aniplex (Wonder Egg Priority)", id: id++ },
 ];
 

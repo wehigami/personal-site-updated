@@ -3,7 +3,7 @@ import Head from "next/head";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase-config";
 import { useState, useEffect } from "react";
-import styles from '../styles/projects.module.scss';
+import styles from "../styles/projects.module.scss";
 import { namePages } from "../lib/pages-names";
 
 export async function getStaticProps() {
@@ -11,7 +11,7 @@ export async function getStaticProps() {
   const pageNames = namePages();
   return {
     props: {
-      pageNames
+      pageNames,
     },
   };
 }
@@ -36,13 +36,37 @@ export default function Projects({ pageNames }) {
       </Head>
 
       <section>
+        <h1 className="text-center text-3xl my-12">
+          Here are all my projects:
+        </h1>
+        <span>:3</span>
+
+        <div
+          className={`flex m-2 mb-12 h-72 w-auto bg-red-800 items-center justify-center ${styles.projectsResponsive}`}
+          style={{
+            backgroundSize: "cover",
+          }}
+        >
+          <h1>test</h1>
+        </div>
+
         <div className={`${styles.projectsGrid} place-items-center`}>
           {projects.map((project) => (
-            <div key={project.id} className={`flex m-2 mb-12 h-72 w-auto bg-red-800 items-center justify-center ${styles.projectsResponsive}`} style={{backgroundImage: `url("${project.img}")`, backgroundSize: 'cover' }}>
+            <div
+              key={project.id}
+              className={`flex m-2 mb-12 h-72 w-auto bg-red-800 items-center justify-center ${styles.projectsResponsive}`}
+              style={{
+                backgroundImage: `url("${project.img}")`,
+                backgroundSize: "cover",
+              }}
+            >
               <h1>{project.name}</h1>
             </div>
           ))}
         </div>
+      </section>
+      <section>
+        <p className="text-center">pages</p>
       </section>
     </Layout>
   );
