@@ -19,6 +19,7 @@ export async function getStaticProps() {
 export default function Projects({ pageNames }) {
   const [projects, setProjects] = useState([]);
   const projectsCollectionRef = collection(db, "projects");
+  const [currentProject, setCurrentProject] = useState(true);
 
   useEffect(() => {
     const getProjects = async () => {
@@ -28,6 +29,10 @@ export default function Projects({ pageNames }) {
 
     getProjects();
   }, []);
+
+  let handleProject = () => {
+    setCurrentProject(currentProject != currentProject);
+  };
 
   return (
     <Layout navData={pageNames}>
@@ -41,26 +46,24 @@ export default function Projects({ pageNames }) {
         </h1>
         <span>:3</span>
 
-        <div
-          className={`flex m-2 mb-12 h-72 w-auto bg-red-800 items-center justify-center ${styles.projectsResponsive}`}
-          style={{
-            backgroundSize: "cover",
-          }}
-        >
-          <h1>test</h1>
-        </div>
-
         <div className={`${styles.projectsGrid} place-items-center`}>
           {projects.map((project) => (
-            <div
-              key={project.id}
-              className={`flex m-2 mb-12 h-72 w-auto bg-red-800 items-center justify-center ${styles.projectsResponsive}`}
-              style={{
-                backgroundImage: `url("${project.img}")`,
-                backgroundSize: "cover",
-              }}
-            >
-              <h1>{project.name}</h1>
+            <div>
+              {currentProject ? (
+                <div
+                  key={project.id}
+                  className={`flex m-2 mb-12 h-72 w-auto bg-red-800 items-center justify-center ${styles.projectsResponsive}`}
+                  style={{
+                    backgroundImage: `url("${project.img}")`,
+                    backgroundSize: "cover",
+                  }}
+                  onClick={handleProject}
+                >
+                  <h1>{project.name}</h1>
+                </div>
+              ) : (
+                <div></div>
+              )}
             </div>
           ))}
         </div>
