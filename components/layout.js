@@ -34,7 +34,7 @@ export default function Layout({ children, home, navData }) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <nav className="border-y-4 border-zinc-800">
+      <nav className="border-y-4 border-zinc-800 z-30">
         <Nav navigation={navData}/>
       </nav>
       {home ? (
